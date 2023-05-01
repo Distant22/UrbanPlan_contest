@@ -1,17 +1,6 @@
-export default function Hotel() {
+export default function Hotel({result}) {
     return (
       <>
-      <div class=" space-x-2 ml-6 mt-3">
-        <input type="checkbox" id="site" name="site"/>
-        <label for="site">景點</label>
-
-        <input type="checkbox" id="food" name="food"/>
-        <label for="food">飲食</label>
-
-        <input type="checkbox" id="hotel" name="hotel"/>
-        <label for="hotel">住宿</label>
-
-      </div>
 
       <div class="flex flex-row">
         <div class=" h-[calc(185vh)] w-60 mt-12 ml-4 bg-gray-200 rounded-3xl">
