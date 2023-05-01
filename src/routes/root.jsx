@@ -1,14 +1,16 @@
 import TopBar from "../components/topbar";
 import SearchBox from "../components/searchBox";
-import TravelSpot from "../components/travelSpot";
-import Hotel from "../components/hotel";
+import Food from "../components/journey";
+
 
 export default function Root() {
+
+
     return (
       <>
         <TopBar/>
-        {/* <SearchBox/> */}
-        <Hotel />
+        {/* <Food /> */}
+        <SearchBox />
         <div id="topbar">
           
         </div>
