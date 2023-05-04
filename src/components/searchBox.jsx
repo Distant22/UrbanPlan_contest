@@ -48,7 +48,7 @@ export default function SearchBox() {
                         <input
                             type="text" 
                             class="w-full h-full bg-white rounded-full px-8 font-bold border-transparent"
-                            placeholder="請輸入您想去的地方/景點/店家......"
+                            placeholder="請輸入縣市（要輸入「臺」而不是「台」！）"
                             onChange={handleChange}
                             value={message}
                         />
