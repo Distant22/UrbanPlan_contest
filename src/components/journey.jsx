@@ -21,6 +21,15 @@ export default function Journey({result}) {
           <p className="text-lg p-8 font-bold text-gray-600">載入中...</p>
       ) : (
       <ul>
+        {journeys.length === 0 && 
+            <p class="p-8 font-bold text-gray-600">
+              找不到結果QQ<br /><br />
+              請確認以下內容是否設定正確：<br/>
+              1. 將「台」替換為「臺」字。 Ex：臺南市 <br />
+              2. 時間設定正確 <br />
+              3. 網路狀態良好
+            </p>
+        }
         {journeys.map((journey) => (
           <div className="w-1/1 h-[10rem] rounded-3xl bg-gray-300 my-2 mx-4 p-4 font-bold">
               <li key={`${journey.Id}-${journey.Name}`}>
