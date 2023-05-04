@@ -43,7 +43,7 @@ export default function Hotel({result}) {
         setIsLoading(false);
       }
       fetchData();
-    }, [hotelTypeBox]);
+    });
 
 
     return (
