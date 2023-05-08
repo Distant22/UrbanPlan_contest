@@ -12,7 +12,11 @@ module.exports = {
       'searchBox': '#EDECEB',
       'white': '#FFFFFF'
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        Serif: ['Noto Serif TC', 'serif']
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin'),
