@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        Serif: ['Noto Serif TC', 'serif']
+        Serif: ['cwTeXYen','Noto Serif TC', 'serif']
       }
     },
   },

@@ -1,9 +1,9 @@
 import TopBar from "../components/topbar";
 import Footer from "../components/footer";
-import ForumPreview from "../components/forumPreview";
+import Group from "../components/group";
 import Home from "../components/home/home";
 import Chat from "../components/chat";
-import Map from "../components/map";
+import Setting from "../components/setting";
 import { useState } from "react";
 
 export default function Root() {
@@ -12,16 +12,16 @@ export default function Root() {
 
 
     return (
-      <div class="h-screen flex flex-col">
+      <div class="h-screen flex flex-col bg-gray-100">
         <TopBar/>
-        <p class="w-screen h-[0.1rem] bg-gray-300"></p>
+        {/* <p class="w-screen h-[0.1rem] bg-gray-300"></p> */}
         <div class="mb-auto h-full overflow-y-scroll">
           {footerValue === "Home" ? ( <Home /> ) : ( <> </> )}  
-          {footerValue === "Announce" ? ( <ForumPreview /> ) : ( <> </> )}  
+          {footerValue === "Announce" ? ( <Group /> ) : ( <> </> )}  
           {footerValue === "Chat" ? ( <Chat /> ) : ( <> </> )}  
-          {footerValue === "Map" ? ( <Map /> ) : ( <> </> )}  
+          {footerValue === "Setting" ? ( <Setting /> ) : ( <> </> )}  
         </div>
-        <p class="w-screen h-[0.1rem] bg-gray-300"></p>
+        {/* <p class="w-screen h-[0.1rem] bg-gray-300"></p> */}
         <Footer onClick={(click) => {setFooterValue(click);}} />
       </div>
     );

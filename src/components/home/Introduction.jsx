@@ -1,15 +1,27 @@
 import React from 'react'
+import { FiMail } from 'react-icons/fi';
+import { FaBatteryFull } from 'react-icons/fa';
+import { AiFillSound } from 'react-icons/ai';
+import { BsCreditCard } from 'react-icons/bs';
+import { IconContext } from "react-icons";
 
 function Introduction() {
+
+  const arr = ["信件通知","節能報告","活動快訊","收繳管理","其他項目"]
+  const iconList = [<FiMail />,<FaBatteryFull />,<AiFillSound />,<BsCreditCard />,<BsCreditCard />]
+
+  const introBlock = arr.map((num,index) => <div class="h-full aspect-square rounded-xl border-2 border-[#4C8E82]  flex flex-col bg-gray-200 items-center justify-center">
+      <p class="h-[calc(60%)] text-[#4C8E82] flex whitespace-pre-line items-end">
+        {num}
+      </p>
+      <p class="flex h-[calc(40%)] items-start"><IconContext.Provider value={{ color: '#4C8E82' }}>{iconList[index]}</IconContext.Provider></p>
+    </div>);
+
   return (
-    <div class="h-full py-4 mx-4 w-max flex flex-row relative space-x-4">
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">1</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">2</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">3</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">4</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">5</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">6</div>
-        <div class="h-full aspect-square bg-green-300 rounded-xl flex items-center justify-center">7</div>
+
+    <div class="h-full py-4 mx-4 w-max flex relative space-x-4 justify-between">
+        { introBlock }
+
     </div>
   )
 }
