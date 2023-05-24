@@ -16,10 +16,10 @@ function home() {
           <Introduction />
         </div>
         <div class="h-1/5 mx-4 pb-2 flex bg-[#4C8E82] text-white hover:bg-[#FFEC95] hover:text-black duration-300 p-4 font-bold rounded-xl">
-          本日用電量：120度
+          社區本月公共用電量：2235度
         </div>
-        <div class="h-full px-2 pt-2 pb-4">
-          <div class="h-full w-full overflow-y-scroll">
+        <div class="h-max px-2 pt-2 pb-4">
+          <div class="h-max w-full overflow-y-scroll">
             <ForumPreview />
           </div>
         </div>
