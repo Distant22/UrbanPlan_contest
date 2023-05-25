@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import KungFu from '../kung-fu.png'
 import Chess from '../chess.png'
 import Cooking from '../cooking.png'
 import Flower from '../flower.png'
 import Guitar from '../guitar.png'
-import { AiOutlineLike, AiTwotoneLike } from 'react-icons/ai';
-import { IconContext } from "react-icons";
 import { files } from '../groupFile'
 
 export default function Group() {
 
   const [groupLabel, setGroupLabel] = useState("KungFu");
-  const [like, setLike] = useState(false)
 
   const [expandIndex, setExpandIndex] = useState(null)
   const [renderText, setRenderText] = useState(false)
@@ -34,11 +31,6 @@ export default function Group() {
     setGroupLabel(name)
     console.log(groupLabel)
   }
-
-  const changeLike = () => {
-    setLike(!like)
-  }
-
 
   return (
     <>
@@ -77,7 +69,7 @@ export default function Group() {
                   </div>
                 ) 
                : ( groupLabel === "Chess" && file.label === groupLabel ? (
-                <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
+                    <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
                       <p class="flex items-start justify-end">
                         <p class="flex items-start text-[#2F584F] w-full">{file.title}</p>
                         {/* <button class="bg-red-300" onClick={() => changeLike()}><IconContext.Provider value={{ size: '1.2rem' }}>{ like ? <AiOutlineLike /> : <AiTwotoneLike /> }</IconContext.Provider></button> */}
@@ -87,7 +79,7 @@ export default function Group() {
                     </div>
                   ) 
                 : ( groupLabel === "Cooking" && file.label === groupLabel ? (
-                  <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
+                      <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
                           <p class="flex items-start justify-end">
                             <p class="flex items-start text-[#2F584F] w-full">{file.title}</p>
                             {/* <button class="bg-red-300" onClick={() => changeLike()}><IconContext.Provider value={{ size: '1.2rem' }}>{ like ? <AiOutlineLike /> : <AiTwotoneLike /> }</IconContext.Provider></button> */}
@@ -97,7 +89,7 @@ export default function Group() {
                       </div>
                     ) 
                   : ( groupLabel === "Flower" && file.label === groupLabel ? (
-                    <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
+                        <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-full duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
                           <p class="flex items-start justify-end">
                             <p class="flex items-start text-[#2F584F] w-full">{file.title}</p>
                             {/* <button class="bg-red-300" onClick={() => changeLike()}><IconContext.Provider value={{ size: '1.2rem' }}>{ like ? <AiOutlineLike /> : <AiTwotoneLike /> }</IconContext.Provider></button> */}
@@ -105,7 +97,17 @@ export default function Group() {
                           <p class="text-[#5B8E81] text-sm">{file.subtitle}</p>
                           <p class={`${expandIndex === key && renderText ? "whitespace-pre-line opacity-100 text-[#2F584F] text-sm mt-6 overflow-y-hidden" : "opacity-0"}`}>{file.content.split("<br/>").join("\n")}</p>
                         </div>
+                    ) : ( groupLabel === "Guitar" && file.label === groupLabel ? (
+                          <div onClick={() => { expandIndex === key ? nothing() : changeIndex(key) }} onMouseLeave={() => changeIndex(null)} key={key} class="w-[calc(95%)] h-1/4 hover:h-2/3 duration-500 rounded-3xl p-4 bg-[#D0DCD4] border-2 border-[#2F584F]">
+                            <p class="flex items-start justify-end">
+                              <p class="flex items-start text-[#2F584F] w-full">{file.title}</p>
+                              {/* <button class="bg-red-300" onClick={() => changeLike()}><IconContext.Provider value={{ size: '1.2rem' }}>{ like ? <AiOutlineLike /> : <AiTwotoneLike /> }</IconContext.Provider></button> */}
+                            </p>
+                            <p class="text-[#5B8E81] text-sm">{file.subtitle}</p>
+                            <p class={`${expandIndex === key && renderText ? "whitespace-pre-line opacity-100 text-[#2F584F] text-sm mt-6 overflow-y-hidden" : "opacity-0"}`}>{file.content.split("<br/>").join("\n")}</p>
+                          </div>
                     ) : (<></>)
+                  )
                 )
                )) }
             </>
