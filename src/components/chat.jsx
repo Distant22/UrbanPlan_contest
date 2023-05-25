@@ -76,8 +76,8 @@ function Chat() {
         )}    
     </div>
     <p class="absolute h-[4rem] w-full bottom-0 -translate-y-[4rem] bg-[#4C8E82]"></p>
-      <input type="text" placeholder="輸入文字..." onChange={(e)=>{ setCurrentText(e.target.value)}}  class="absolute h-[2rem] w-[70%] rounded-2xl w-full bottom-0 left-1/2 -translate-x-[66%] -translate-y-[5rem] input focus:outline-0" />
-      <button onClick={() => { handleMessage(currentText) }} class="absolute h-[2rem] w-[18%] rounded-lg bg-gray-800 text-white bottom-0 right-0 -translate-x-[25%] -translate-y-[5rem] hover:bg-white hover:text-black">發送</button>
+      <input type="text" placeholder="輸入文字..." onChange={(e)=>{ setCurrentText(e.target.value)}}  class="absolute h-[2rem] w-[60%] rounded-2xl w-full bottom-0 left-1/2 -translate-x-[66%] -translate-y-[5rem] input focus:outline-0" />
+      <button onClick={() => { handleMessage(currentText) }} class="absolute h-[2rem] w-[12%] rounded-lg bg-gray-800 text-white bottom-0 right-0 -translate-x-[25%] -translate-y-[5rem] hover:bg-white hover:text-black">發送</button>
     </div>
   )
 }
