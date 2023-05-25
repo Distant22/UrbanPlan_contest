@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import OldMan from '../oldman.jpg'
 import Guard from '../guard.png'
 import Miss from '../miss.png'
@@ -52,9 +52,16 @@ function Chat() {
     }, 1000);
   }
 
+  const chatContainerRef = useRef(null);
+
+  useEffect(() => {
+    const chatContainer = chatContainerRef.current;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }, [message]);
+
   return (
-    <div class="w-full h-full flex justify-center">
-    <div class="font-Serif font-bold w-[90%] h-full overflow-y-scroll pb-24 pt-6">
+    <div class="w-full h-full flex flex-col justify-center items-center">
+      <div ref={chatContainerRef} class="font-Serif font-bold w-[90%] h-[90%] overflow-y-scroll py-6">
         { message.map ((msg, index) => (
 
           <div className={`${msg.name === '' ? "chat chat-end" : "chat chat-start"}`}>
@@ -65,7 +72,7 @@ function Chat() {
             </div>
             <div className="chat-header">
               { msg.name }
-              <time className="text-xs opacity-50 ml-2">2 小時前</time>
+              <time className="text-xs opacity-50 ml-2">{index < 7 ? "2 小時前" : "剛剛"}</time>
             </div>
             <div className={`${msg.name === '' ? "chat-bubble chat-bubble-success" : "chat-bubble"}`}>{ msg.message }</div>
             <div className="chat-footer opacity-50">
@@ -75,9 +82,10 @@ function Chat() {
         )
         )}    
     </div>
-    <p class="absolute h-[4rem] w-full bottom-0 -translate-y-[4rem] bg-[#4C8E82]"></p>
-      <input type="text" placeholder="輸入文字..." onChange={(e)=>{ setCurrentText(e.target.value)}}  class="absolute h-[2rem] w-[60%] rounded-2xl w-full bottom-0 left-1/2 -translate-x-[66%] -translate-y-[5rem] input focus:outline-0" />
-      <button onClick={() => { handleMessage(currentText) }} class="absolute h-[2rem] w-[12%] rounded-lg bg-gray-800 text-white bottom-0 right-0 -translate-x-[25%] -translate-y-[5rem] hover:bg-white hover:text-black">發送</button>
+      <p class="h-[10%] w-[100%] bg-[#4C8E82] flex items-center justify-center">
+        <input type="text" placeholder="輸入文字..." onChange={(e)=>{ setCurrentText(e.target.value)}}  class="mx-2 h-[70%] max-h-[2rem] w-[60%] rounded-2xl input focus:outline-0" />
+        <button onClick={() => { handleMessage(currentText) }} class="h-[70%] max-h-[2rem] w-[30%] rounded-lg bg-gray-800 text-white hover:bg-white hover:text-black mx-2">發送</button>
+      </p>
     </div>
   )
 }
